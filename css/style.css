@@ -1,0 +1,370 @@
+/* ===========================
+   RESET CORES E VARIÁVEIS
+=========================== */
+:root {
+  /* Cores */
+  --color-primary: #FFC107;
+  --color-primary-dark: #FFB300;
+  --color-bg-dark: #23211f;
+  --color-text-light: #acacac;
+  --color-white: #ffffff;
+  
+  /* Espaçamentos */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  /* Fonte */
+  --font-family: 'Nunito', sans-serif;
+}
+
+/* Uso */
+.swiper-button-next::after {
+  color: var(--color-primary) !important;
+  background-color: var(--color-bg-dark);
+}
+
+
+/* ===========================
+   PRELOADER
+=========================== */
+
+#preloader {
+  transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+#preloader.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Animações personalizadas */
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 2s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 1.5s linear infinite;
+}
+
+/* Previne scroll durante carregamento */
+body.loading {
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  line-height: 1.6;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: 
+    url('../fonts/nunito-sans.regular.woff2') format('woff2'),
+    url('../fonts/nunito-sans.regular.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* ===========================
+   ANIMAÇÃOS PULSE
+=========================== */
+@keyframes pulseInfinite {
+  0%, 100% { 
+    transform: scale(1); 
+  }
+  50% { 
+    transform: scale(1.15); 
+  }
+}
+
+.pulse-infinite {
+  animation: pulseInfinite 1.9s infinite ease-in-out;
+  will-change: transform; /* Otimização de performance */
+}
+
+/* ===========================
+   ANIMAÇÃO NOSSOS NÚMEROS
+=========================== */
+
+/* Animação fade-in com subida */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Aplica animação nos cards */
+#nossos-numeros article {
+  opacity: 0; /* Começa invisível */
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Delay sequencial para cada card */
+#nossos-numeros article:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+#nossos-numeros article:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+#nossos-numeros article:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+/* Hover effect nos cards */
+#nossos-numeros article {
+  transition: transform 0.3s ease;
+}
+
+#nossos-numeros article:hover {
+  transform: translateY(-5px);
+}
+
+/* Animação nos números (pulsação sutil) */
+#nossos-numeros data {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+#nossos-numeros article:hover data {
+  transform: scale(1.1);
+}
+
+/* ===========================
+   SWIPER
+=========================== */
+.swiper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-30%);
+}
+
+/* SLIDES */
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 18px;
+  color: var(--color-white);
+  padding: 40px 20px; /* Aumentei padding lateral */
+  text-align: center;
+  margin-top: 110px;
+}
+
+.swiper-slide .title {
+  font-size: clamp(28px, 5vw, 40px); /* Responsivo */
+  font-weight: 700; /* Mais bold para destaque */
+  line-height: 1.2;
+  margin: 0.5rem 0;
+}
+
+.swiper-slide .subtitle {
+  font-size: clamp(16px, 3vw, 20px); /* Responsivo */
+  margin-bottom: 1.5rem;
+  color: var(--color-text-light);
+  max-width: 600px; /* Limita largura para legibilidade */
+}
+
+.swiper-slide .text {
+  font-size: 14px;
+  max-width: 400px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Badge (span) */
+.swiper-slide span {
+  font-size: 14px;
+  margin-bottom: 0.5rem;
+}
+
+/* CONTROLES */
+.swiper-button-next,
+.swiper-button-prev {
+  top: 50%; /* Centraliza verticalmente */
+  transform: translateY(-150%); /* Compensa a altura do botão */
+  margin-top: 0; /* Remove qualquer margin padrão */
+  transition: all 0.3s ease;
+}
+
+.swiper-button-next {
+  right: 20px; /* Distância da margem direita */
+}
+
+.swiper-button-prev {
+  left: 20px; /* Distância da margem esquerda */
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  opacity: 0.8;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  color: var(--color-primary) !important;
+  background-color: var(--color-bg-dark);
+  font-size: 16px !important;
+  padding: 13px 15px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.swiper-button-next:hover::after,
+.swiper-button-prev:hover::after {
+  background-color: var(--color-bg-dark);
+}
+
+
+
+/* ===========================
+   BOTÃO WHATSAPP FLUTUANTE
+=========================== */
+
+/* Melhora a sombra do botão */
+aside a[href*="wa.me"] {
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+}
+
+aside a[href*="wa.me"]:hover {
+  box-shadow: 0 6px 30px rgba(37, 211, 102, 0.7);
+}
+
+/* Efeito de "respiro" contínuo */
+aside a[href*="wa.me"]::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: rgba(37, 211, 102, 0.3);
+  border-radius: 50%;
+  animation: ripple 2s infinite ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  100% {
+    width: 150%;
+    height: 150%;
+    opacity: 0;
+  }
+}
+
+/* Ajuste mobile (tela pequena) */
+@media (max-width: 640px) {
+  aside a[href*="wa.me"] {
+    padding: 0.875rem; /* Menor em mobile */
+  }
+  
+  aside a[href*="wa.me"] svg {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* ===========================
+   MEDIA QUERIES
+=========================== */
+
+/* TABLETS E ACIMA (768px+) */
+@media (min-width: 768px) {
+  .swiper-slide {
+    padding: 50px 30px;
+    margin-top: 0px;
+  }
+    .swiper-button-next {
+    right: 40px; /* Mais espaço em telas maiores */
+  }
+  
+  .swiper-button-prev {
+    left: 40px;
+  }
+}
+
+/* DESKTOP PEQUENO (1024px+) */
+@media (min-width: 1024px) {
+  .swiper {
+    width: 40%;
+    height: 40%;
+    right: 20%;
+    left: auto; /* Remove left:0 para right funcionar */
+    transform: translateY(-150%);
+  }
+
+  .swiper-slide {
+    padding: 60px 40px;
+  }
+  .swiper-button-next {
+    right: 60px;
+  }
+  
+  .swiper-button-prev {
+    left: 60px;
+  }
+}
+
+/* DESKTOP MÉDIO (1280px+) */
+@media (min-width: 1280px) {
+  .swiper {
+    transform: translateY(-160%);
+  }
+}
+
+/* DESKTOP GRANDE (1536px+) */
+@media (min-width: 1536px) {
+  .swiper {
+    transform: translateY(-250%);
+  }
+}
+
+/* ===========================
+   UTILITÁRIOS
+=========================== */
+
+/* Smooth scroll para toda a página */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Melhora performance de animações */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
