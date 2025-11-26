@@ -150,58 +150,6 @@ body {
   transform: scale(1.1);
 }
 
-
-/* ===========================
-   SERVIÇOS REALIZADOS - CARROSSEL INFINITO
-=========================== */
-
-/* Animação de scroll infinito */
-@keyframes scroll-infinite {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-scroll-infinite {
-  animation: scroll-infinite 30s linear infinite;
-  width: max-content;
-}
-
-/* Pausa ao hover */
-.animate-scroll-infinite:hover,
-.pause-animation:hover {
-  animation-play-state: paused;
-}
-
-/* Transição suave das imagens */
-#servicos-realizados img {
-  transition: transform 0.5s ease;
-}
-
-/* Efeito hover nas imagens */
-#servicos-realizados .group:hover img {
-  filter: brightness(1.1);
-}
-
-/* Gradiente das bordas */
-#servicos-realizados .group > div {
-  background: linear-gradient(135deg, #3B82F6 0%, #FFC107 50%, #3B82F6 100%);
-  background-size: 200% 200%;
-  animation: gradient-shift 3s ease infinite;
-}
-
-@keyframes gradient-shift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
 /* ===========================
    SWIPER
 =========================== */
@@ -352,9 +300,12 @@ aside a[href*="wa.me"]::before {
 
 /* TABLETS E ACIMA (768px+) */
 @media (min-width: 768px) {
-  .swiper-slide {
-    padding: 50px 30px;
-    margin-top: 0px;
+    .swiper {
+    width: 60%;
+    height: 60%;
+    right: 20%;
+    left: auto; /* Remove left:0 para right funcionar */
+    transform: translateY(-100%);
   }
     .swiper-button-next {
     right: 40px; /* Mais espaço em telas maiores */
@@ -368,11 +319,11 @@ aside a[href*="wa.me"]::before {
 /* DESKTOP PEQUENO (1024px+) */
 @media (min-width: 1024px) {
   .swiper {
-    width: 40%;
-    height: 40%;
+    width: 50%;
+    height: 50%;
     right: 20%;
     left: auto; /* Remove left:0 para right funcionar */
-    transform: translateY(-150%);
+    transform: translateY(-140%);
   }
 
   .swiper-slide {
