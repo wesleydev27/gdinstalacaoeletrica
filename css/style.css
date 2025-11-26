@@ -3,20 +3,20 @@
 =========================== */
 :root {
   /* Cores */
-  --color-primary: #FFC107;
-  --color-primary-dark: #FFB300;
+  --color-primary: #ffc107;
+  --color-primary-dark: #ffb300;
   --color-bg-dark: #23211f;
   --color-text-light: #acacac;
   --color-white: #ffffff;
-  
+
   /* Espaçamentos */
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
-  
+
   /* Fonte */
-  --font-family: 'Nunito', sans-serif;
+  --font-family: "Nunito", sans-serif;
 }
 
 /* Uso */
@@ -24,7 +24,6 @@
   color: var(--color-primary) !important;
   background-color: var(--color-bg-dark);
 }
-
 
 /* ===========================
    PRELOADER
@@ -41,13 +40,21 @@
 
 /* Animações personalizadas */
 @keyframes spin-slow {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes spin-reverse {
-  0% { transform: rotate(360deg); }
-  100% { transform: rotate(0deg); }
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 .animate-spin-slow {
@@ -65,15 +72,14 @@ body.loading {
 
 body {
   margin: 0;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   line-height: 1.6;
 }
 
 @font-face {
-  font-family: 'Nunito';
-  src: 
-    url('../fonts/nunito-sans.regular.woff2') format('woff2'),
-    url('../fonts/nunito-sans.regular.ttf') format('truetype');
+  font-family: "Nunito";
+  src: url("../fonts/nunito-sans.regular.woff2") format("woff2"),
+    url("../fonts/nunito-sans.regular.ttf") format("truetype");
   font-display: swap;
   font-weight: 500;
   font-style: normal;
@@ -83,11 +89,12 @@ body {
    ANIMAÇÃOS PULSE
 =========================== */
 @keyframes pulseInfinite {
-  0%, 100% { 
-    transform: scale(1); 
+  0%,
+  100% {
+    transform: scale(1);
   }
-  50% { 
-    transform: scale(1.15); 
+  50% {
+    transform: scale(1.15);
   }
 }
 
@@ -150,7 +157,6 @@ body {
   transform: scale(1.1);
 }
 
-
 /* ===========================
    MARCAS PARCEIRAS - CARROSSEL INFINITO
 =========================== */
@@ -183,6 +189,58 @@ body {
 #marcas .grayscale:hover {
   filter: grayscale(0%) brightness(1);
   transform: scale(1.1);
+}
+
+/* ===========================
+   SERVIÇOS REALIZADOS - CARROSSEL INFINITO
+=========================== */
+
+/* Animação de scroll infinito */
+@keyframes scroll-infinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-infinite {
+  animation: scroll-infinite 30s linear infinite;
+  width: max-content;
+}
+
+/* Pausa ao hover */
+.animate-scroll-infinite:hover,
+.pause-animation:hover {
+  animation-play-state: paused;
+}
+
+/* Transição suave das imagens */
+#servicos-realizados img {
+  transition: transform 0.5s ease;
+}
+
+/* Efeito hover nas imagens */
+#servicos-realizados .group:hover img {
+  filter: brightness(1.1);
+}
+
+/* Gradiente das bordas */
+#servicos-realizados .group > div {
+  background: linear-gradient(135deg, #3b82f6 0%, #ffc107 50%, #3b82f6 100%);
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 /* ===========================
@@ -275,8 +333,6 @@ body {
   background-color: var(--color-bg-dark);
 }
 
-
-
 /* ===========================
    BOTÃO WHATSAPP FLUTUANTE
 =========================== */
@@ -292,7 +348,7 @@ aside a[href*="wa.me"]:hover {
 
 /* Efeito de "respiro" contínuo */
 aside a[href*="wa.me"]::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -322,7 +378,7 @@ aside a[href*="wa.me"]::before {
   aside a[href*="wa.me"] {
     padding: 0.875rem; /* Menor em mobile */
   }
-  
+
   aside a[href*="wa.me"] svg {
     width: 35px;
     height: 35px;
@@ -335,17 +391,17 @@ aside a[href*="wa.me"]::before {
 
 /* TABLETS E ACIMA (768px+) */
 @media (min-width: 768px) {
-    .swiper {
+  .swiper {
     width: 60%;
     height: 60%;
     right: 20%;
     left: auto; /* Remove left:0 para right funcionar */
     transform: translateY(-100%);
   }
-    .swiper-button-next {
+  .swiper-button-next {
     right: 40px; /* Mais espaço em telas maiores */
   }
-  
+
   .swiper-button-prev {
     left: 40px;
   }
@@ -367,7 +423,7 @@ aside a[href*="wa.me"]::before {
   .swiper-button-next {
     right: 60px;
   }
-  
+
   .swiper-button-prev {
     left: 60px;
   }
