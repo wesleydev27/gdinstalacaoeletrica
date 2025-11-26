@@ -150,6 +150,41 @@ body {
   transform: scale(1.1);
 }
 
+
+/* ===========================
+   MARCAS PARCEIRAS - CARROSSEL INFINITO
+=========================== */
+
+/* Animação de scroll das marcas */
+@keyframes scroll-brands {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-brands {
+  animation: scroll-brands 40s linear infinite;
+  width: max-content;
+}
+
+/* Pausa ao hover */
+.animate-scroll-brands:hover {
+  animation-play-state: paused;
+}
+
+/* Efeito grayscale para as marcas */
+#marcas .grayscale {
+  filter: grayscale(100%) brightness(0.7);
+}
+
+#marcas .grayscale:hover {
+  filter: grayscale(0%) brightness(1);
+  transform: scale(1.1);
+}
+
 /* ===========================
    SWIPER
 =========================== */
